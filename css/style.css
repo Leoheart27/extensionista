@@ -3,29 +3,75 @@
     padding: 0;
     margin: 0;
     scroll-behavior: smooth;
+    --blue-color-1: rgb(75, 139, 190);
+    --blue-color-2: rgb(25, 50, 70);
+    --yellow-color-1: rgb(255, 213, 0);
+    --yellow-color-2: rgb(255, 212, 59);
+    --gray: rgb(0, 30, 70);
 }
 
 body {
+    background-color: black;
+}
+
+.master_container {
     display: flex;
 }
 
 /* All changes made to container 1 starts here */
 
 .container1 {
-    flex: 1;
-    background-color: blueviolet;
-    height: 1000px;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--blue-color-2);
 }
 
 .title {
-    background-color: white;
-    height: 100px;
+    height: 120px;
+    border-bottom: 1px solid;
+    font-size: 32px;
+    padding: 20px;
+    color: aliceblue;
+    
 }
 
 section {
-    height: 300px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    gap: 30px;
+    color: antiquewhite;
 }
 
+section h2 {
+    font-size: 32px;
+}
+
+section p {
+    font-size: 1.4rem;
+    max-width: 800px;
+}
+
+section span{
+    background-color: rgb(101, 101, 101);
+    border: 1px solid transparent;
+    border-radius: 5px;
+    padding: 1px;
+}
+
+code {
+    display: block;
+    width: 600px;
+    padding: 15px;
+    color: rgb(150, 150, 150);
+    background-color: #1e1e1e;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    overflow-x: auto;
+    left: 0;
+    font-size: 1.4rem;
+
+}
 /* All changes made to container 1 ends here */
 
 
@@ -35,18 +81,13 @@ section {
 .container2 {
     display: flex;
     flex-direction: column;
-    background-color: brown;
-    height: 1000px;
-    position: fixed;
     right: 0;
-    border-left: 20px solid white;
+    border-left: 20px solid;
 }
 
 .index_box {
     display: flex;
-    width: 250px;
-    height: 400px;
-    border: 3px solid black;
+    border: 3px solid rgb(255, 255, 255);
     align-items: center;
     justify-content: center;
 }
@@ -56,11 +97,5 @@ nav a{
     color: white;
 }
 
-.console {
-    background-color: black;
-    width: 600px;
-    height: 300px;
-    margin-top: auto;
-}
 
 /* All changes made to container 2 ends here */
