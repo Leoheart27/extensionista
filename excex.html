@@ -11,9 +11,6 @@
 <body>
 
   <!-- Title of the page (header)-->
-  <div class="title">
-    <h1>Aprendipy</h1>
-  </div>
   <!-- Title of the page (header)-->
 
 
@@ -22,18 +19,17 @@
 
     <div class="container2">
       <div class="index_box">
+        <h1>AprendiPy</h1>
         <nav>
-          <ol>
+          <ul>
             <li><a href="#x_1">Variáveis</a></li>
-            <li><a href="#x_2">Matemática</a></li>
-            <li><a href="#x_3">link</a></li>
-            <li><a href="#x_4">link</a></li>
-            <li><a href="#x_5">link</a></li>
-            <li><a href="#x_6">link</a></li>
-            <li><a href="#x_7">link</a></li>
-            <li><a href="#x_8">link</a></li>
-            <li><a href="#x_9">link</a></li>
-          </ol>
+            <li><a href="#x_2">Operadores Matemáticos</a></li>
+            <li><a href="#x_3">F-Strings</a></li>
+            <li><a href="#x_4">Listas</a></li>
+            <li><a href="#x_5">Loops</a></li>
+            <li><a href="#x_6">Funções</a></li>
+            <li><a href="#x_7">E agora?</a></li>
+          </ul>
         </nav>
       </div>
     </div>
@@ -43,9 +39,8 @@
     <div class="container1">
 
       <div class="content">
-
         <section id="x_1">
-          <h2>1. Variáveis</h2>
+          <h2>Variáveis</h2>
           <p>Variáveis são formas de salvar dados em nosso programa. <br>
             Uma variável tem um nome que nós escolhemos para indicar o tipo de data que está nela.
             Poderiamos criar uma variável de nome <span>minha_idade</span> e atribuir o valor de 20 ou uma variável de nome <span>meu_nome</span> e atribuir "Lucas". <br>
@@ -59,54 +54,234 @@
           <p>Podemos usar o comando <span>print</span> para visualizarmos nossa variavel no console.</p>
 
           <code>
-            print(my_number) <br>
-            print(my_float_number) <br>
-            print(my_text) <br>
-            <br>
-            <br>
+            print(my_number) <i># 10</i> <br>
+            print(my_float_number) <i># 1.023</i><br>
+            print(my_text) <i># Texto</i>
 
-            ------ > console ------ > <br>
-            <br>
-            <br>
-            10 <br>
-            1.0123 <br>
-            Texto <br>
-            
           </code>
+          <p>Existem diferentes tipos de dados em python:</p>
+            <li>String = "Texto"</li>
+            <li>Int = 10 <i>número inteiro</i></li>
+            <li>float = 1.5 <i>número decimal</i></li>
           <p>Para um guia completo de <a target="_blank" href="https://pythoniluminado.netlify.app/tipos-variaveis">Variáveis.</a></p>
         </section>
-
+        <br>
+        <hr>
+        <br>
         <section id="x_2">
-          <h2>1.1 Matemática</h2>
-          <p>vamos praticar o uso de variaveis com um exercicio de matemática.</p>
+          <h2>Operadores Matemáticos</h2>
+          <p>Vamos praticar o uso de variaveis com um exercicio de matemática. <br>
+          Se você não gosta de matemática, não se assuste! você não precisa ser um expert em matemática para saber programar. <br>
+        Vamos começar com um exemplo de calculo simples.</p>
+      <p>Exemplo:</p>
+        <code>
+          x = 50 <br>
+          y = 10 <br>
+          <br>
+          <span>print</span>(x - y)   <i># 40</i> <br>
+          <span>print</span>(x + y)   <i># 60</i> <br>
+          <span>print</span>(x / y)   <i># 5</i> <br>
+          <span>print</span>(x * y)   <i># 500</i> <br>
+        </code>
+
+        <p>OBSERVAÇÃO! Em python expressões númericas seguem a ordem: <br> 1º Potenciação e Radiciação,
+          2º Multiplicação e Divisão,
+          3º Soma e Subtração.</p>
+        <code>
+          <span>print</span>((6 + 10 * 2) / 2) <i># 13</i>
+        </code>
+        <img style="width: 400px;" src="assets/img/operadores-aritmeticos.png" alt="">
+
+        <h3>Operadores + Strings</h3>
+        <p>podemos também utilizar opreadores matemáticos para "juntar" variaveis do tipo string:</p>
+        <code>
+          primeiro_nome = "Lucas" <br>
+          segundo_nome = "Ferreira" <br>
+          <br>
+          <span>print</span>(primeiro_nome + segundo_nome) <i># LucasFerreira</i>
+        </code>
+        <p>Note que ao "juntar" com operador de adição, ele literalmente uniu as 2 strings, sem espaço entre as duas. <br>
+        Uma das formas de se resolver isso, é somando mais uma string com espaço entre as 2. <br> Exemplo:</p>
+        <code>
+          <span>print</span>(primeiro_nome + " " + segundo_nome) <br> <i># Lucas Ferreira</i>
+        </code>
+
         </section>
+        <br>
+        <hr>
+        <br>
         <section id="x_3">
-          <h2>Seção 4</h2>
-          <p>Conteúdo da seção 4.</p>
+          <h2>F-strings</h2>
+          <p>Podemos criar strings dinâmicas com variáveis usando f-string. É uma ótima sintaxe para ter conhecimento sobre.</p>
+          <p>Assim como vimos anteriormente, podems usar o <span>print</span> para visualizar um valor de uma variável, no caso uma string:</p>
+          <code>
+            my_name = "Lucas"
+            <br>
+            <br>
+            <span>print</span>(my_name) <i># Lucas</i>
+          </code>
+          <p>Mas podemos usar uma F-string para operarmos melhor essa informação, a sintaxe ficaria:</p>
+          <code>
+            my_name = "Lucas"
+            <br>
+            <br>
+            <span>print</span>(<span>f</span>"Eu me chamo <span>{my_name}</span>") <i># Eu me chamo Lucas</i>
+          </code>
+
+          <h3>F-string na prática</h3>
+      
+          <p>Utilizando a sintaxe correta, use o comando <span>print</span> para visualizar 3 variáveis diferentes com f-string.</p>
+          <code>
+            nome = "Lucas" <i># string</i> <br>
+            idade = 20 <i># int</i> <br>
+            altura = 1.75 <i># float</i> <br>
+            <br>
+            <span>print</span>("Meu nome é <span>{nome}</span>, tenho <span>{idade}</span> anos e <span>{altura}</span> metros de altura") <br>
+            <i># Meu nome é Lucas, tenho 20 anos e 1.75 metros de altura</i>
+          </code>
         </section>
+        <br>
+        <hr>
+        <br>
 
         <section id="x_4">
-          <h2>Seção 5</h2>
-          <p>Conteúdo da seção 5.</p>
+          <h2>Listas</h2>
+          <p>Estrutura composta é uma variavel que pode conter diversos valores.</p>
+          <p>Lista é uma forma de organizar dados, em outras linguagens podem ter outros nomes como "array",
+            mas em python nós temos <span>lists</span>. <br>
+            Muitos aplicativos têm seus itens organizados em listas. <br>
+            Por exemplo: <br>
+            <li>Uma lista de produtos em um site de compras</li>
+            <li>Uma lista de postagens nas redes sociais</li>
+            <li>Um jogo de tabuleiro pode ter uma lista de comandos</li>
+          </p>
+          <p>Para declarar uma variavel como uma lista, utilizamos [colchetes], com virgulas separando cada item.</p>
+          <code>
+            frutas = ["Maçã", "Laranja", "Banana", "Uva"]
+          </code>
+          <p>Uma lista pode conter qualquer tipo de dado, a lista <span>frutas</span> acima, é uma lista de strings</p>
+          <h3>Acessando uma lista</h3>
+          <p>Podemos acessar um item de uma lista através de seu indice. <br>
+          O primeiro item de uma lista se refere ao indice <span>0</span>.</p>
+          <code>
+            <span>print</span>(frutas<span>[0]</span>) <i># Maçã</i> <br>
+            <span>print</span>(frutas<span>[1]</span>) <i># Laranja</i>
+          </code>
+          <h3>Alterando uma lista</h3>
+          <p>Podemos alterar um item de uma lista de diversas formas, uma delas é pelo seu indice.</p>
+          <code>
+            <i>lista original</i> frutas = ["Maçã", "Laranja", "Banana", "Uva"] <br>
+            <br>
+            frutas[0] = "Banana" <br>
+           <span>print</span>(frutas) <br> <i># ["Banana", "Laranja", "Banana", "Uva"]</i>
+          </code>
+          <h3>Muito mais</h3>
+          <p>Existem diversas funções e formas de se manipular uma lista, mas não vamos nos aprofundar 
+            em todas elas, para não ficar muito massante.</p>
+            <p>Saiba que estruturas compostas como uma <span>lista</span> são bastante usadas.
+            Veremos mais para frente exemplos de como podemos usar essas listas em loops e funções.</p>
+            <p>Para um guia mais aprofundado de <a href="https://pythoniluminado.netlify.app/listas">listas</a> e outras estruturas compostas.</p>
         </section>
-
+        <br>
+        <hr>
+        <br>
         <section id="x_5">
-          <h2>Seção 6</h2>
-          <p>Conteúdo da seção 6.</p>
+          <h2>Loops</h2>
+          <p>Em Python, existem dois tipos principais de loops: o loop for e o loop while.</p>
+          <h3>Loop "for"</h3>
+            <p>O loop for é usado para iterar sobre uma sequência (como uma lista, tupla, string) ou outros objetos iteráveis. <br>
+            Vamos usar como exemplo de como uma lista interage com loop for.</p>
+            <code>
+              frutas = ["Maçã", "Laranja", "Banana", "Uva"]
+              <br>
+              <i>estrutura for</i> <br>
+    <pre>for <span>i</span> in frutas:
+    <span>print</span>(i) <br></pre>
+              <br>
+              <i># Maçã</i> <br>
+              <i># Laranja</i> <br>
+              <i># Banana</i> <br>
+              <i># Uva</i> <br>
+            </code>
+            <p>Após o <span>for</span> nós escolhemos o nome que vai indicar cada item da lista.
+            Nesse caso escolhemos <span>i</span> (podendo ser outra a sua escolha) que representa cada fruta na lista.
+          Vemos que com a função <span>print</span> cada item da lista será chamado, um de cada vez.</p>
+          <h3>Loop "while"</h3>
+          <p>O loop while executa um bloco de código repetidamente enquanto uma condição específica for verdadeira.</p>
+          <p>Nesse caso iremos criar uma condição utilizando o operador de comparação <span><</span></p>
+          <code>
+            <pre>
+contador = 0
+<span>while</span> contador <span><</span> 5:
+   contador = contador + 1
+
+<span>print</span>(contador) <i># 5</i>
+            </pre>
+          </code>
+          <p>Basicamente nós criamos um loop que vai somar 1 à variável contador, enquanto contador for menor que 5.</p>
         </section>
+
         <section id="x_6">
-          <h2>Seção 7</h2>
-          <p>Conteúdo da seção 7.</p>
-        </section>
+          <h2>Funções</h2>
+          <p>Em Python, uma função é um bloco de código reutilizável que executa uma tarefa específica. 
+            Funções ajudam a organizar o código, tornando-o mais modular, legível e fácil de manter.</p>
+            <h3>Definindo uma função</h3>
+            <p>Você pode definir uma função usando a palavra-chave def, seguida pelo nome da função, parâmetros entre parênteses e um 
+              bloco de código indentado que compõe o corpo da função. </p>
 
+              <code>
+                <pre>
+  <span>def</span> somar(x, y):
+      <span>return</span> x + y
+                </pre>
+              resultado = <span>somar</span>(10, 90) <br>
+              <br>
+              <span>print</span>(resultado)
+              <i># 100</i>
+              </code>
+              <p>Vamos utilizar oque vimos anteriormente e juntar com funções.</p>
+              <p>Se eu quero descobrir a área de um circulo eu posso utilizar:</p>
+              <code>
+                raio = 5 <br>
+                area = 3.14 * raio * raio <br>
+                <span>print</span>(area) <i># 78.5</i> 
+                
+              </code>
+              <p>Agora vamos transformar isso em uma função que pode ser reutilizada com parametros diferentes.</p>
+              <code>
+                <pre>
+<span>def</span> area(x):
+      pi = 3.14
+      area = pi * x * x
+      <span>return</span> area
+                </pre>
+                <span>print</span>(area(5)) <i># 78.5</i> <br>
+                <span>print</span>(area(2)) <i># 12.56</i> <br>
+                <span>print</span>(area(8)) <i># 200.96</i> <br>
+              </code>
+            <p>E se eu tiver uma <span>lista</span> como parametro?</p>
+            <code>
+              numeros = [1, 5, 10]
+              <pre>
+  <span>def</span> somar(lista):
+        x = 10
+        for i in lista:
+            x = x + i
+        return x
+              </pre>
+              <span>print</span>(somar(numeros)) <i># 26</i>
+            </code>
+            <p>Aqui nós criamos uma função que utiliza um <span>loop for</span> para somarmos a nossa variavel x cada número dentro dela, e retornamos a variavel x modificada.</p>
+        </section>
+        <br>
+          <hr>
+          <br>
         <section id="x_7">
-          <h2>Seção 8</h2>
-          <p>Conteúdo da seção 8.</p>
-        </section>
-
-        <section id="x_8">
-          <h2>Seção 9</h2>
-          <p>Conteúdo da seção 3.</p>
+          <h2>O que mais?</h2>
+          <p>Até agora, só vimos a ponta do iceberg de cada assunto falado. Se você chegou até aqui recriando os exemplos no seu <span>pycharm</span>, então você conseguiu
+          entender um pouco sobre a linguagem python.</p>
+          <p>Linguagem de programação, não é somente o que foi resumido aqui, mas se você conseguiu recriar e entender todo o conteúdo, você percebeu que programação não é um bixo de sete cabeças. </p>
+          <p>Espero ter despertado sua curiosidade para aprender mais sobre linguagem python. A internet está a sua disposição e com ela diversos cursos online para te guiar nessa jornada!</p>
         </section>
       </div>
     </div>
