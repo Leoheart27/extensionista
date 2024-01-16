@@ -47,6 +47,11 @@ section {
     color: antiquewhite;
 }
 
+section img {
+    width: 300px;
+    max-height: 200px;
+}
+
 section h2 {
     font-size: 32px;
 }
@@ -152,4 +157,23 @@ nav a:hover {
     color: rgb(149, 149, 255);
 }
 
+
 /* All changes made to container 2 ends here */
+
+@media (max-width: 1200px) {
+    .container2 {
+        display: none;
+    }
+
+    .container1 {
+        margin-left: 0;
+    }
+
+    section img {
+        width: 350px;
+    }
+    
+    section code {
+        width: fit-content;
+    }
+}
