@@ -326,6 +326,10 @@ contador = 0
           entender um pouco sobre a linguagem python.</p>
           <p>Linguagem de programação, não é somente o que foi resumido aqui, mas se você conseguiu recriar e entender todo o conteúdo, você percebeu que programação não é um bixo de sete cabeças. </p>
           <p>Espero ter despertado sua curiosidade para aprender mais sobre linguagem python. A internet está a sua disposição e com ela diversos cursos online para te guiar nessa jornada!</p>
+          <p>"Agora você pode escrever e testar códigos Python diretamente no nosso site! Com a nova integração do CodeMirror, oferecemos um editor interativo que permite praticar programação sem precisar instalar nada. Basta digitar seu código, executar e ver o resultado instantaneamente. Essa melhoria torna o aprendizado mais dinâmico e acessível para todos os iniciantes. Experimente agora!"
+
+          </p>
+        
         </section>
       </div>
     </div>
@@ -335,6 +339,61 @@ contador = 0
 
 
   <script src="js/script.js"></script>
+
+
+  
+<!-- Inclui o CodeMirror e o modo Python -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/codemirror.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/codemirror.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/mode/python/python.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/addon/edit/closebrackets.min.js"></script>
+
+
+<textarea id="editor">print("Olá, Python!")</textarea>
+<button onclick="runCode()">Executar</button>
+<pre id="output"></pre>
+
+
+<script>
+  var editor = CodeMirror.fromTextArea(document.getElementById("editor"), {
+    mode: "python",
+    theme: "default",
+    lineNumbers: true,
+    autoCloseBrackets: true
+  });
+
+  function runCode() {
+    let code = editor.getValue();
+    try {
+      let output = eval(code); // ⚠️ Não recomendado para código arbitrário na web!
+      document.getElementById("output").textContent = output;
+    } catch (error) {
+      document.getElementById("output").textContent = "Erro: " + error;
+    }
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </body>
 
 </html>
