@@ -342,36 +342,139 @@ contador = 0
 
 
   
-<!-- Inclui o CodeMirror e o modo Python -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/codemirror.min.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/codemirror.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/mode/python/python.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/addon/edit/closebrackets.min.js"></script>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editor Python Interativo</title>
+    
+    <!-- CodeMirror -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/codemirror.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/mode/python/python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/addon/edit/closebrackets.min.js"></script>
+    
+    <!-- Brython para executar Python no navegador -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/brython/3.11.3/brython.min.js"></script>
+</head>
+<body onload="brython()">
+    <h2>Editor de Código Python</h2>
+    <textarea id="editor">print("Olá, Python!")</textarea>
+    <button onclick="runCode()">Executar</button>
+    <pre id="output"></pre>
+    
+    <script>
+        var editor = CodeMirror.fromTextArea(document.getElementById("editor"), {
+            mode: "python",
+            theme: "default",
+            lineNumbers: true,
+            autoCloseBrackets: true
+        });
+
+        function runCode() {
+            let code = editor.getValue();
+            let outputElement = document.getElementById("output");
+            
+            try {
+                outputElement.innerHTML = ""; // Limpar saída
+                let script = document.createElement("script");
+                script.type = "text/python";
+                script.text = code;
+                document.body.appendChild(script);
+                brython(); // Executa o código Python
+            } catch (error) {
+                outputElement.textContent = "Erro: " + error;
+            }
+        }
+    </script>
+</body>
+</html>
 
 
-<textarea id="editor">print("Olá, Python!")</textarea>
-<button onclick="runCode()">Executar</button>
-<pre id="output"></pre>
 
 
-<script>
-  var editor = CodeMirror.fromTextArea(document.getElementById("editor"), {
-    mode: "python",
-    theme: "default",
-    lineNumbers: true,
-    autoCloseBrackets: true
-  });
 
-  function runCode() {
-    let code = editor.getValue();
-    try {
-      let output = eval(code); // ⚠️ Não recomendado para código arbitrário na web!
-      document.getElementById("output").textContent = output;
-    } catch (error) {
-      document.getElementById("output").textContent = "Erro: " + error;
-    }
-  }
-</script>
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editor Python Interativo</title>
+    
+    <!-- CodeMirror -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/codemirror.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/mode/python/python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/addon/edit/closebrackets.min.js"></script>
+    
+    <!-- Brython para executar Python no navegador -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/brython/3.11.3/brython.min.js"></script>
+</head>
+<body onload="brython()">
+    <h2>Editor de Código Python</h2>
+    <textarea id="editor">print("Olá, Python!")</textarea>
+    <button onclick="runCode()">Executar</button>
+    <pre id="output"></pre>
+    
+    <script>
+        var editor = CodeMirror.fromTextArea(document.getElementById("editor"), {
+            mode: "python",
+            theme: "default",
+            lineNumbers: true,
+            autoCloseBrackets: true
+        });
+
+        function runCode() {
+            let code = editor.getValue();
+            let outputElement = document.getElementById("output");
+            
+            try {
+                outputElement.innerHTML = ""; // Limpar saída
+                let script = document.createElement("script");
+                script.type = "text/python";
+                script.text = code;
+                document.body.appendChild(script);
+                brython(); // Executa o código Python
+            } catch (error) {
+                outputElement.textContent = "Erro: " + error;
+            }
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
