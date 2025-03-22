@@ -329,49 +329,110 @@ contador = 0
           <p>"Agora você pode escrever e testar códigos Python diretamente no nosso site! Com a nova integração do CodeMirror, oferecemos um editor interativo que permite praticar programação sem precisar instalar nada. Basta digitar seu código, executar e ver o resultado instantaneamente. Essa melhoria torna o aprendizado mais dinâmico e acessível para todos os iniciantes. Experimente agora!"
 
           </p>
-        
+
+
         </section>
       </div>
     </div>
     <!-- Container1 End-->
 
   </div>
+</body>
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Console Python com Brython</title>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/brython/3.11.3/brython.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #282c34;
+            color: white;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: #3a3f4b;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        textarea {
+            width: 100%;
+            height: 120px;
+            background: #1e1e1e;
+            color: #ffffff;
+            border: 1px solid #555;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+        button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background: #007bff;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        pre {
+            text-align: left;
+            background: black;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            color: #ffffff;
+            min-height: 50px;
+        }
+    </style>
+</head>
+<body onload="brython()">
+    <div class="container">
+        <h2>Execute código Python no navegador!</h2>
+        <textarea id="codigo">print("Olá, Brython!")</textarea>
+        <button onclick="executar()">Executar</button>
+        <pre id="saida"></pre>
+    </div>
+
+    <py-script>
+
+      type="text/python"
+      from browser import document
+
+    def executar():
+    codigo = document["codigo"].value
+    saida_elemento = document["saida"]
+    
+    try:
+        exec(codigo, {})
+        saida_elemento.text = "Código executado com sucesso!"
+    except Exception as e:
+        saida_elemento.text = f"Erro: {e}"
+
+    document["codigo"].bind("keydown", lambda e: executar() if e.key == "Enter" and e.ctrlKey else None)
 
 
-  <script src="js/script.js"></script>
-
+    </py-script>  
+</body>
+</html>
 
   
-<!-- Inclui o CodeMirror e o modo Python -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/codemirror.min.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/codemirror.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/mode/python/python.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/addon/edit/closebrackets.min.js"></script>
 
 
-<textarea id="editor">print("Olá, Python!")</textarea>
-<button onclick="runCode()">Executar</button>
-<pre id="output"></pre>
 
 
-<script>
-  var editor = CodeMirror.fromTextArea(document.getElementById("editor"), {
-    mode: "python",
-    theme: "default",
-    lineNumbers: true,
-    autoCloseBrackets: true
-  });
-
-  function runCode() {
-    let code = editor.getValue();
-    try {
-      let output = eval(code); // ⚠️ Não recomendado para código arbitrário na web!
-      document.getElementById("output").textContent = output;
-    } catch (error) {
-      document.getElementById("output").textContent = "Erro: " + error;
-    }
-  }
-</script>
+</html>  
 
 
 
@@ -394,6 +455,24 @@ contador = 0
 
 
 
-</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 </html>
