@@ -404,26 +404,6 @@ contador = 0
         <button onclick="executar()">Executar</button>
         <pre id="saida"></pre>
     </div>
-
-    <py-script>
-
-      type="text/python"
-      from browser import document
-
-    def executar():
-    codigo = document["codigo"].value
-    saida_elemento = document["saida"]
-    
-    try:
-        exec(codigo, {})
-        saida_elemento.text = "Código executado com sucesso!"
-    except Exception as e:
-        saida_elemento.text = f"Erro: {e}"
-
-    document["codigo"].bind("keydown", lambda e: executar() if e.key == "Enter" and e.ctrlKey else None)
-
-
-    </py-script>  
 </body>
 </html>
 
@@ -433,46 +413,6 @@ contador = 0
 
 
 </html>  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 </html>
